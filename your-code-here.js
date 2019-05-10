@@ -39,6 +39,3 @@ function  movingAround(element,increment){
         moveLeft(element,increment);
     }
 }
-function things(){
-    
-}
