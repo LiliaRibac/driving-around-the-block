@@ -3,6 +3,7 @@ let carProps = {
     drivingDirection: 'right',
     carSpeed: 3
 }
+
 let board = document.getElementById('game-board');
 let intervalId;
 
@@ -11,7 +12,7 @@ function reset() {
     carProps.drivingDirection = 'right';
     var board = document.querySelector("#game-board");
     board.innerHTML = '';
-    
+
     road.paint(road);
     road2.paint(road2);
     road3.paint(road3);
@@ -22,14 +23,14 @@ function reset() {
     intersection3.paint(intersection3);
     intersection4.paint(intersection4);
 
-    showCar(road, intersection)
+    showCar(road, intersection);
 
 }
 
 
 function start() {
     intervalId = setInterval(function () {
-        move()
+        move();
     }, 50);
 }
 
@@ -47,8 +48,6 @@ function Road(width, height, top, left, drivingSpeed) {
     this.drivingSpeed = drivingSpeed;
 
     this.paint = (road) => {
-        console.log("Painting the road")
-
         let section = document.createElement('div');
         section.style.width = `${road.width}px`;
         section.style.height = `${road.height}px`;
@@ -72,8 +71,6 @@ function Intersection(width, height, top, left) {
     this.left = left;
 
     this.paint = (intersection) => {
-        console.log("Painting the road")
-
         let section = document.createElement('div');
         section.style.width = `${intersection.width}px`;
         section.style.height = `${intersection.height}px`;
@@ -183,9 +180,6 @@ function checkIfInIntersection() {
         carProps.drivingDirection = 'right';
 
     } else if (carTop <= 150 && carLeft > 200 && carLeft < 250) {
-        console.log(
-            "Stopping Car!"
-        )
         stop()
     } else {
         console.log("Not in intersection", "left: ", carLeft, "top: ", carTop, carProps);
