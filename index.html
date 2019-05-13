@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script src="track.js" /></script>
-    <script src="your-code-here.js" /></script>
+    <!-- <script src="track.js" /></script> -->
+    
     <title>Race Track</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="your-styles-here.css" />
@@ -14,16 +14,14 @@
             <option id="game-1">Simple Track</option>
             <option id="game-3">Right Turn</option>
             <option id="game-2">Loop Track</option>
-            <!-- <option id="game-4">8 Track</option> -->
+            <!--<option id="game-4">8 Track</option>-->
         </select> 
         <input type="button" value="Start" onclick="start()"/>
         <input type="button" value="Stop" onclick="stop()" />
         <input type="button" value="Reset" onclick="reset()" />
     </div>
     <div id="game-board"></div>
-    <script>
-    document.querySelector("#game-picker").selectedIndex = 3;
-    reset();
-    </script>
+    <script src="main.js"></script>
+    <script src="your-code-here.js"></script>
 </body>
 </html>
