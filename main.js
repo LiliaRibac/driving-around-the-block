@@ -119,9 +119,10 @@ showCar(road, intersection)
 
 
 function move() {
-    checkIfInIntersection();
     nearIntersection();
-    if (carProps.drivingDirection === 'right') {
+    // checkIfInIntersection();
+    
+        if (carProps.drivingDirection === 'right') {
         moveRight();
     } else if (carProps.drivingDirection === 'down') {
         moveDown();
@@ -131,6 +132,8 @@ function move() {
         moveUp();
 
     }
+   
+    checkIfInIntersection();
 }
 
 function moveRight() {
@@ -159,49 +162,55 @@ function checkIfInIntersection() {
     let carLeft = `${parseInt(car.style.left.replace('px', ''))}`
     let carTop = `${parseInt(car.style.top.replace('px', ''))}`
 
-    if (carTop <= 200 && carLeft >= 800) { // top right int
-        carProps.carSpeed = 1;
+    if (carTop <= 200  && carLeft >= 800) { // top right int
+        //carProps.carSpeed = 1;
         car.style.transform = 'rotate(90deg)';
         carProps.drivingDirection = 'down';
+        carProps.carSpeed = 1;
 
     } else if (carTop >= 415 && carLeft >= 800) { // bottom right int
-        carProps.carSpeed = 1;
+       // carProps.carSpeed = 1;
         car.style.transform = 'rotate(180deg)';
         carProps.drivingDirection = 'left';
+        carProps.carSpeed = 1;
 
-    } else if (carTop >= 405 && carLeft <= 130) { // bottom left int
+    } else if (carTop >= 405 && carLeft <= 120) { // bottom left int
         carProps.carSpeed = 1;
         car.style.transform = 'rotate(270deg)';
         carProps.drivingDirection = 'up';
 
-    } else if (carTop <= 150 && carLeft <= 150) {
+    } else if (carTop <= 150 && carLeft <= 130) {
         carProps.carSpeed = 1;
         car.style.transform = 'rotate(360deg)';
         carProps.drivingDirection = 'right';
 
-    } else if (carTop <= 150 && carLeft > 200 && carLeft < 250) {
+    } else if (carTop <= 160 && carLeft > 200 && carLeft < 250) {
         stop()
+        
     } else {
         console.log("Not in intersection", "left: ", carLeft, "top: ", carTop, carProps);
-        carProps.carSpeed = 10;
+       carProps.carSpeed = 10;
     }
 }
 
 function nearIntersection() {
+   // checkIfInIntersection()
     let car = document.getElementById('car');
     let carLeft = `${parseInt(car.style.left.replace('px', ''))}`
     let carTop = `${parseInt(car.style.top.replace('px', ''))}`
 
-    if (carTop <= 150 && carLeft >= 700) { // top right int
-        carProps.carSpeed = 5;
+    if (carTop <= 150 && carLeft >=680) { // top right int
+        carProps.carSpeed = 3;
 
     } else if (carTop >= 320 && carLeft >= 800) { // bottom right int
-        carProps.carSpeed = 5;
+        carProps.carSpeed = 3;
 
-    } else if (carTop >= 400 && carLeft <= 230) { // bottom left int
-        carProps.carSpeed = 5;
+    } else if (carTop >= 380 && carLeft <= 230) { // bottom left int
+        carProps.carSpeed = 3;
 
-    } else if (carTop <= 250 && carLeft <= 100) { // top left
-        carProps.carSpeed = 5;
+    } else if (carTop <= 220 && carLeft <= 100) { // top left
+        carProps.carSpeed = 3;
+
     }
+   console.log(nearIntersection)
 }
