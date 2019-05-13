@@ -1,32 +1,24 @@
-div {
-    margin: 0px;
-    padding: 0px;
-}
-
+div{ margin:0px; padding: 0px;}
 #nav {
-    z-index: 100;
+    z-index:100;
     position: absolute;
 }
-
 #car {
     position: absolute;
     transition: .08s;
 }
 
 .board-row {
-    height: 100px;
+    height:100px;
 }
-
 .square {
     position: absolute;
 }
-
 #code-pane {
-    position: absolute;
+    position:absolute;
     left: 1000px;
 }
-
-#code {
+#code{
     width: 500px;
     height: 400px;
 }

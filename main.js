@@ -1,7 +1,7 @@
 let car = document.getElementById('car');
 let carProps = {
     drivingDirection: 'right',
-    carSpeed: 3
+    carSpeed: 10
 }
 
 let board = document.getElementById('game-board');
@@ -120,9 +120,9 @@ showCar(road, intersection)
 
 function move() {
     nearIntersection();
-    // checkIfInIntersection();
+    checkIfInIntersection();
     
-        if (carProps.drivingDirection === 'right') {
+    if (carProps.drivingDirection === 'right') {
         moveRight();
     } else if (carProps.drivingDirection === 'down') {
         moveDown();
@@ -133,7 +133,7 @@ function move() {
 
     }
    
-    checkIfInIntersection();
+    //checkIfInIntersection();
 }
 
 function moveRight() {
@@ -143,6 +143,7 @@ function moveRight() {
 
 function moveDown() {
     let car = document.getElementById('car');
+    console.log(carProps.carSpeed)
     return car.style.top = `${parseInt(car.style.top.replace('px', '')) + carProps.carSpeed}px`;
 }
 
@@ -163,23 +164,23 @@ function checkIfInIntersection() {
     let carTop = `${parseInt(car.style.top.replace('px', ''))}`
 
     if (carTop <= 200  && carLeft >= 800) { // top right int
-        //carProps.carSpeed = 1;
+        carProps.carSpeed = 1;
         car.style.transform = 'rotate(90deg)';
         carProps.drivingDirection = 'down';
         carProps.carSpeed = 1;
 
     } else if (carTop >= 415 && carLeft >= 800) { // bottom right int
-       // carProps.carSpeed = 1;
+        carProps.carSpeed = 1;
         car.style.transform = 'rotate(180deg)';
         carProps.drivingDirection = 'left';
         carProps.carSpeed = 1;
 
-    } else if (carTop >= 405 && carLeft <= 120) { // bottom left int
+    } else if (carTop >= 405 && carLeft <= 125) { // bottom left int
         carProps.carSpeed = 1;
         car.style.transform = 'rotate(270deg)';
         carProps.drivingDirection = 'up';
 
-    } else if (carTop <= 150 && carLeft <= 140) {
+    } else if (carTop <= 150 && carLeft <= 155) {
         carProps.carSpeed = 1;
         car.style.transform = 'rotate(360deg)';
         carProps.drivingDirection = 'right';
@@ -194,7 +195,6 @@ function checkIfInIntersection() {
 }
 
 function nearIntersection() {
-   checkIfInIntersection()
     let car = document.getElementById('car');
     let carLeft = `${parseInt(car.style.left.replace('px', ''))}`
     let carTop = `${parseInt(car.style.top.replace('px', ''))}`
@@ -202,7 +202,7 @@ function nearIntersection() {
     if (carTop <= 150 && carLeft >=680) { // top right int
         carProps.carSpeed = 3;
 
-    } else if (carTop >= 320 && carLeft >= 800) { // bottom right int
+    } else if (carTop >= 300 && carLeft >= 750) { // bottom right int
         carProps.carSpeed = 3;
 
     } else if (carTop >= 405 && carLeft <= 230) { // bottom left int
@@ -212,5 +212,5 @@ function nearIntersection() {
         carProps.carSpeed = 3;
 
     }
-   console.log(nearIntersection)
+//    console.log(nearIntersection)
 }
