@@ -56,10 +56,10 @@ function Road(width, height, top, left, drivingSpeed) {
         section.style.left = `${road.left}px`;
         section.style.backgroundColor = '#333';
 
-        board.appendChild(section);
+        board.appendChild(section); //??
     }
 
-    this.slow = () => {
+    this.slow = () => { //??
 
     }
 }
@@ -121,7 +121,7 @@ showCar(road, intersection)
 function move() {
     nearIntersection();
     checkIfInIntersection();
-    
+
     if (carProps.drivingDirection === 'right') {
         moveRight();
     } else if (carProps.drivingDirection === 'down') {
@@ -132,7 +132,7 @@ function move() {
         moveUp();
 
     }
-   
+
     //checkIfInIntersection();
 }
 
@@ -163,7 +163,7 @@ function checkIfInIntersection() {
     let carLeft = `${parseInt(car.style.left.replace('px', ''))}`
     let carTop = `${parseInt(car.style.top.replace('px', ''))}`
 
-    if (carTop <= 200  && carLeft >= 800) { // top right int
+    if (carTop <= 200 && carLeft >= 800) { // top right int
         carProps.carSpeed = 1;
         car.style.transform = 'rotate(90deg)';
         carProps.drivingDirection = 'down';
@@ -187,10 +187,10 @@ function checkIfInIntersection() {
 
     } else if (carTop <= 150 && carLeft > 220 && carLeft < 250) {
         stop()
-        
+
     } else {
         console.log("Not in intersection", "left: ", carLeft, "top: ", carTop, carProps);
-       carProps.carSpeed = 10;
+        carProps.carSpeed = 10;
     }
 }
 
@@ -199,7 +199,7 @@ function nearIntersection() {
     let carLeft = `${parseInt(car.style.left.replace('px', ''))}`
     let carTop = `${parseInt(car.style.top.replace('px', ''))}`
 
-    if (carTop <= 150 && carLeft >=680) { // top right int
+    if (carTop <= 150 && carLeft >= 680) { // top right int
         carProps.carSpeed = 3;
 
     } else if (carTop >= 300 && carLeft >= 750) { // bottom right int
@@ -212,5 +212,5 @@ function nearIntersection() {
         carProps.carSpeed = 3;
 
     }
-//    console.log(nearIntersection)
+
 }
